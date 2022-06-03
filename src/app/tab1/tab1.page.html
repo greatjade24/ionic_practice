@@ -1,0 +1,32 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <!-- 전체를 감싸는 박스 -->
+  <div class="content-container">
+
+    <!-- 상단 타이틀 영역 -->
+    <div class="title-wrapper">
+      <span class="mint-font">This month's</span>
+      <span>Top Movies Chart</span>
+    </div>
+
+    <!-- 차트 목록 영역 -->
+    <div class="chart-item-wrapper" *ngFor="let movie of moviedata.items" (click)="onClickedMovieItem(movie)">
+
+      <!-- 썸네일 이미지 -->
+      <div class="thumbnail-wrapper">
+        <img [src]="movie.volumeInfo.imageLinks.thumbnail" />
+      </div>
+
+      <!-- 영화 설명 -->
+      <div class="description-wrapper">
+        <span class="description-title">{{movie.volumeInfo.title}}</span>
+        <span class="description-content">{{movie.volumeInfo.description}}</span>
+      </div>
+    </div>
+  </div>
+</ion-content>
